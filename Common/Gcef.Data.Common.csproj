@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net45</TargetFramework>
+    <RootNamespace>GrapeCity.Enterprise.Data.DataSource.Common</RootNamespace>
+    <AssemblyName>GrapeCity.Enterprise.Data.DataSource.Common</AssemblyName>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>Dragonfly.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Cache\**" />
+    <EmbeddedResource Remove="Cache\**" />
+    <None Remove="Cache\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="DataFlattener.cs" />
+    <Compile Remove="DataTypeInfer.cs" />
+    <Compile Remove="GCCacheFactory.cs" />
+    <Compile Remove="GCCommandBase.cs" />
+    <Compile Remove="GCConnectionBase.cs" />
+    <Compile Remove="GCConnectionStringBuilder.cs" />
+    <Compile Remove="GCDataReaderBase.cs" />
+    <Compile Remove="GCDataTableReader.cs" />
+    <Compile Remove="GCDbParameter.cs" />
+    <Compile Remove="GCDbParameterCollection.cs" />
+    <Compile Remove="HttpClientExtension.cs" />
+    <Compile Remove="ITraverser.cs" />
+    <Compile Remove="JsonPathHelper.cs" />
+    <Compile Remove="LogModels.cs" />
+    <Compile Remove="Model.cs" />
+    <Compile Remove="OAuthRequest.cs" />
+    <Compile Remove="SqlExecutor\AggregationHelper.cs" />
+    <Compile Remove="SqlExecutor\DataTableSqlExecutor.cs" />
+    <Compile Remove="SqlExecutor\DataTypeHelper.cs" />
+    <Compile Remove="SqlExecutor\ISQLExecutor.cs" />
+    <Compile Remove="SqlExecutor\SQLExecutor.cs" />
+    <Compile Remove="SR.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Antlr4.Runtime" Version="4.6.4" />
+  </ItemGroup>
+
+</Project>
