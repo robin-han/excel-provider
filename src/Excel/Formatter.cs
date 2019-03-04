@@ -289,7 +289,6 @@ namespace GrapeCity.Enterprise.Data.DataSource.Excel
 
         #region Constructor
 
-
         public CustomNumberFormat()
         {
             this.formatCached = NumberFormatBase.General;
@@ -308,7 +307,9 @@ namespace GrapeCity.Enterprise.Data.DataSource.Excel
         {
             this.Init(format, culture);
         }
+        #endregion
 
+        #region Methods
         /// <summary>
         /// Initializes the specified format.
         /// </summary>
@@ -497,7 +498,7 @@ namespace GrapeCity.Enterprise.Data.DataSource.Excel
             }
         }
 
-        #region Internal Methods
+
         private bool ContainsCurrencySymbol(string format)
         {
             foreach (var item in CurrencySymbols)
@@ -1952,4 +1953,3 @@ namespace GrapeCity.Enterprise.Data.DataSource.Excel
     }
 }
 
-#endregion

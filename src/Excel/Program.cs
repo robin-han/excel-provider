@@ -15,9 +15,6 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Start ....");
-
-
             using (ExcelConnection connection = new ExcelConnection(GetConnectionString()))
             {
                 System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
@@ -25,21 +22,6 @@ namespace ConsoleApp1
                 connection.Open();
                 stopwatch.Stop();
                 Console.WriteLine("Total cost1: " + stopwatch.ElapsedMilliseconds + "ms");
-
-                //var dataTable = connection.GetSchema("Columns");
-
-
-                //DataTable schemalTable = connection.GetSchema("Columns");
-                //Assert.Equal(3, schemalTable.Columns.Count);
-                //Assert.Equal("CollectionName", schemalTable.Columns[0].ColumnName);
-                //Assert.Equal("NumberOfRestrictions", schemalTable.Columns[1].ColumnName);
-                //Assert.Equal("NumberOfIdentifierParts", schemalTable.Columns[2].ColumnName);
-
-                //Assert.Equal("MetaDataCollections", schemalTable.Rows[0][0]);
-                //Assert.Equal("Tables", schemalTable.Rows[1][0]);
-                //Assert.Equal("Columns", schemalTable.Rows[2][0]);
-                //Assert.Equal("DataTypes", schemalTable.Rows[3][0]);
-
 
                 stopwatch = new System.Diagnostics.Stopwatch();
                 stopwatch.Start();
@@ -56,46 +38,29 @@ namespace ConsoleApp1
                 //dap.Fill(table);
 
                 var oleExcelReader = cmd.ExecuteReader();
-                int nOutputRow = 0;
+                //int nOutputRow = 0;
+                //while (oleExcelReader.Read())
+                //{
+                //    for (int i = 0; i < oleExcelReader.FieldCount; i++)
+                //    {
+                //        object v = oleExcelReader.GetValue(i);
 
-                while (oleExcelReader.Read())
-                {
-                    for (int i = 0; i < oleExcelReader.FieldCount; i++)
-                    {
-                        object v = oleExcelReader.GetValue(i);
-                        //if(v is DateTime)
-                        //{
-                        //    v = ((DateTime)v).ToString("yyyy/MM/dd HH:mm:ss");
-                        //}
-                        Console.Write(v + v.GetType().Name);
-                        Console.Write(", ");
-                    }
-                    Console.WriteLine();
-                    nOutputRow++;
-                }
+                //        Console.Write(v + v.GetType().Name);
+                //        Console.Write(", ");
+                //    }
+                //    Console.WriteLine();
+                //    nOutputRow++;
+                //}
 
                 stopwatch.Stop();
                 Console.WriteLine("Total cost2: " + stopwatch.ElapsedMilliseconds + "ms");
             }
-
-
-          
 
             Console.ReadLine();
         }
 
         private static string GetConnectionString()
         {
-            //string file = @"C:\Users\robinhan\Desktop\Tools_Sales_Data_J (FY2013).xlsx";
-            //string file = @"E:\Temp\Test-ExcelFile\AzureDB.xlsx";
-            //string file = @"E:\Temp\Test-ExcelFile\2013-2013西安环境监测数据.xlsx";
-            //string file = @"E:\Temp\Test-ExcelFile\SampleData\HumanResourcesEmployee - Copy.xlsx";
-            //string file = @"E:\Temp\Test-ExcelFile\SampleData\HumanResources-SmallData.xlsx";
-            //string file = @"E:\Temp\Test-ExcelFile\SampleData\RetailAnalysis - Small.xlsx"; //20W
-            //string file = @"E:\Temp\Test-ExcelFile\Sales 2012-201505-Daisy.xlsx";
-            //string file = @"C:\Users\robinhan\Desktop\StudentScore.xlsx";
-            //string file = @"E:\Temp\Test-ExcelFile\★最新【OV1号F】BIツール集計用.xlsx"; 
-            //string file = @"E:\Temp\Test-ExcelFile\XIRR.xlsx";
             string file = @"E:\Temp\Test-ExcelFile\XIRR_1127.xlsx";
 
             return "Data Source=" + file + ";Row Scan Depth=15;Type Detection Scheme=RowScan";

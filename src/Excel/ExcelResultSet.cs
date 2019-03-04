@@ -8,6 +8,7 @@ using GrapeCity.Enterprise.Data.DataSource.Common.Expression;
 
 namespace GrapeCity.Enterprise.Data.DataSource.Excel
 {
+    #region Class ExcelResultSet
     internal class ExcelResultSet : IResultSet
     {
         private SelectStatement _selectStatement;
@@ -254,25 +255,30 @@ namespace GrapeCity.Enterprise.Data.DataSource.Excel
         }
 
     }
+    #endregion
 
-
+    #region Interface IData
     internal interface IData
     {
         int GetRowCount();
         object[] GetRowData(int position, IList<ColumnExpression> selectColumns);
 
         object GetValue(int position, string columnName);
-
     }
+    #endregion
 
+    #region Class RangeData
     internal class RangeData : IData
     {
+        #region Fields
         private List<ColumnInfo> _dataColumns;
         private IRange _dataRange;
         private ExcelEvalVisitor _evaluator;
 
         private Dictionary<string, ColumnInfo> _columnDict;
+        #endregion
 
+        #region Constructor
         public RangeData(IRange dataRange, List<ColumnInfo> dataColumns, ExcelEvalVisitor evaluator)
         {
             this._dataRange = dataRange;
@@ -281,7 +287,9 @@ namespace GrapeCity.Enterprise.Data.DataSource.Excel
 
             this.Init();
         }
+        #endregion
 
+        #region Methods
         private void Init()
         {
             this._columnDict = new Dictionary<string, ColumnInfo>();
@@ -426,9 +434,11 @@ namespace GrapeCity.Enterprise.Data.DataSource.Excel
                 return null;
             }
         }
-
+        #endregion
     }
+    #endregion
 
+    #region Class ResultSetData
     internal class ResultSetData : IData
     {
         public ResultSetData()
@@ -451,5 +461,5 @@ namespace GrapeCity.Enterprise.Data.DataSource.Excel
             throw new NotImplementedException();
         }
     }
-
+    #endregion
 }
